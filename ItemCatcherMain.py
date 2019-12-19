@@ -80,10 +80,10 @@ yspeed=8
 
 skrift=pygame.font.Font(None, 80)
 def restart():
-    tekst = hm.render('Restart', 13, (0,0,0))
-    textx=WIDTH/2
-    texty=HEIGHT/2 
-    drae.rect(150,150,150)
+    skrift = hm.render('Restart', 13, (0,0,0))
+    skriftx=WIDTH/2
+    skrifty=HEIGHT/2 
+    draw.rect(150,150,150)
      
          
 
@@ -96,12 +96,12 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
-            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                x, y = event.pos
-                if x >= textx - 5 and x <= textx + textx_size + 5:
-                    if y >= texty - 5 and y <= texty + texty_size + 5:
-                        in_main_menu = False
-                        break
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            x, y = event.pos
+            if x >= skriftx - 5 and x <= skriftx + textx_size + 5:
+                if y >= skrifty - 5 and y <= skrifty + texty_size + 5:
+                    in_main_menu = False
+                    break
 
             #for løkken gjør det mulig å lukke spillet på en god måte
             
