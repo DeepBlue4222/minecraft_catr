@@ -37,6 +37,9 @@ clock=pygame.time.Clock()
 pygame.display.update()
 
 
+#this is a new comment
+
+
 kiste=getworkingpath()+"/rsz_minecraftchest.png"
 #henter bildet av kisten fra filplassering på pcen
 #kisten er 170 piksler bred og 105 piksler høykjkjhgugyillgiyiyggiygyiigyii
@@ -72,13 +75,20 @@ muligheter = [positiv1, positiv2, negativ1, negativ2]
     ypos = 10*yspeed
     screen.blit(a, (xpos, ypos))
     objekter.append(ypos)"""
-     
-     
+items = positiv1, positiv2, negativ1, negativ2     
+yspeed=8
+
+skrift=pygame.font.Font(None, 80)
+def restart():
+    tekst = hm.render('Restart', 13, (0,0,0))
+    textx=WIDTH/2
+    texty=HEIGHT/2 
+    drae.rect(150,150,150)
      
          
 
-items = positiv1, positiv2, negativ1, negativ2
-yspeed=8
+
+
 
 #lager variabel for farten til objektene
 while True:
@@ -86,6 +96,13 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                x, y = event.pos
+                if x >= textx - 5 and x <= textx + textx_size + 5:
+                    if y >= texty - 5 and y <= texty + texty_size + 5:
+                        in_main_menu = False
+                        break
+
             #for løkken gjør det mulig å lukke spillet på en god måte
             
     screen.fill(pygame.Color("lightblue"))
@@ -151,11 +168,10 @@ while True:
             kistex+=10
         if kistex>=580:
             kistex-=10
-            #kistex og y er kun lik + og -10 dersom kisten er innenfor 
+            #kistex og y er kun lik +10 og -10 dersom kisten er innenfor 
             #x-verdiene 0 og 580. (Kisten er 170 piksler bred) Slik kan ikke
             #kisten gå ut av skjermen
     
-   
     positiv1_y+=yspeed
     positiv2_y+=yspeed
     negativ1_y+=yspeed
